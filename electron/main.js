@@ -10,7 +10,6 @@ if (process.platform === 'linux' && process.env.XDG_CURRENT_DESKTOP === 'COSMIC'
 // Force WebGL/GPU acceleration on Linux/unsupported systems
 app.commandLine.appendSwitch('ignore-gpu-blocklist');
 app.commandLine.appendSwitch('disable-gpu-driver-bug-workarounds');
-app.commandLine.appendSwitch('disable-software-rasterizer');
 app.commandLine.appendSwitch('enable-gpu-rasterization');
 app.commandLine.appendSwitch('enable-zero-copy');
 
@@ -21,7 +20,7 @@ if (process.platform === 'linux') {
     app.commandLine.appendSwitch('use-gl', 'desktop');
 }
 app.commandLine.appendSwitch('enable-webgl-draft-extensions');
-app.commandLine.appendSwitch('disable-features', 'NetworkServiceSandbox');
+app.commandLine.appendSwitch('disable-features', 'NetworkServiceSandbox,CalculateNativeWinOcclusion');
 
 // Legacy Hardware Support (#8)
 const settingsPath = path.join(app.getPath('userData'), 'settings.json');
